@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Phone Book</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📞 Phone Book</h1>
+      <div class="form-row">
+        <input type="text" id="name" placeholder="Name" />
+        <input type="text" id="phone" placeholder="Phone" />
+        <input type="text" id="address" placeholder="Address" />
+        <button onclick="addContactUI()">Add Contact</button>
+      </div>
+      <h2>Contacts</h2>
+      <div id="contactList" class="contact-list"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
