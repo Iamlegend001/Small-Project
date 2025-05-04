@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brain Food 🍳</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              dark: {
+                900: "#0a0f1c",
+                800: "#131a2e",
+                700: "#1e293b",
+              },
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass-effect {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .gradient-border {
+        position: relative;
+      }
+      .gradient-border::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        border-radius: inherit;
+        z-index: -1;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-dark-900 min-h-screen flex items-center justify-center p-4 font-inter"
+  >
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"
+    ></div>
+
+    <div
+      class="relative glass-effect p-8 rounded-2xl shadow-2xl w-full max-w-2xl border border-gray-800"
+    >
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h1
+            class="text-4xl font-bold text-white mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+          >
+            Brain Food 🍳
+          </h1>
+          <p class="text-gray-400 text-lg">
+            Feed your mind with a daily dose of tech goodness
+          </p>
+        </div>
+        <div
+          class="flex items-center space-x-3 bg-dark-800/50 px-4 py-2 rounded-lg border border-gray-800"
+        >
+          <span class="text-sm text-gray-400">Articles Read:</span>
+          <span id="articleCount" class="text-white font-bold text-lg">0</span>
+        </div>
+      </div>
+
+      <div class="flex justify-center mb-8">
+        <button
+          id="getResource"
+          class="relative gradient-border bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+        >
+          <span class="relative z-10 flex items-center">
+            <span class="mr-2">🎯</span>
+            Feed My Brain
+          </span>
+        </button>
+      </div>
+
+      <div
+        id="resource"
+        class="glass-effect rounded-2xl p-6 min-h-[200px] text-gray-200 transition-all duration-300 hover:shadow-lg border border-gray-800"
+      >
+        <div class="flex items-center justify-between mb-4">
+          <div
+            class="flex items-center space-x-2 bg-dark-800/50 px-3 py-1 rounded-lg"
+          >
+            <span class="text-sm text-gray-400">Category:</span>
+            <span id="articleCategory" class="text-blue-400 font-medium"
+              >JavaScript</span
+            >
+          </div>
+          <div
+            class="flex items-center space-x-2 bg-dark-800/50 px-3 py-1 rounded-lg"
+          >
+            <span class="text-sm text-gray-400">Reading Time:</span>
+            <span id="readingTime" class="text-white font-medium">~5 min</span>
+          </div>
+        </div>
+        <p class="text-gray-400 italic">
+          Click the button to get your first brain snack!
+        </p>
+      </div>
+
+      <div class="mt-8 text-center">
+        <p class="text-sm text-gray-500 flex items-center justify-center">
+          <svg
+            class="w-4 h-4 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            ></path>
+          </svg>
+          Powered by DEV.to API
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
