@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 
-export const CitySearch = ({ onSearch }) => {
+const CitySearch = ({ onSearch }) => {
   const [city, setCity] = useState("");
 
   const handleSearch = () => {
@@ -42,3 +42,6 @@ export const CitySearch = ({ onSearch }) => {
     </div>
   );
 };
+
+export default CitySearch;
+

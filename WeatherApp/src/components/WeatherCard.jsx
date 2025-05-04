@@ -58,15 +58,15 @@ const WeatherCard = ({ weatherData }) => {
     <Card
       className={`w-full bg-gradient-to-br ${getWeatherGradient(
         current.temp
-      )} dark:from-gray-800 dark:to-gray-700 shadow-xl border border-slate-200 dark:border-gray-600`}
+      )} dark:from-gray-800 dark:to-gray-700 shadow-xl border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl`}
     >
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
           <div>
-            <CardTitle className="text-2xl font-bold text-slate-800 dark:text-white">
+            <CardTitle className="text-2xl font-bold text-slate-800 dark:text-white transition-colors duration-300 hover:text-blue-600 dark:hover:text-blue-300">
               {current.name}, {current.country}
             </CardTitle>
-            <p className="text-lg text-slate-600 dark:text-gray-300 capitalize mt-1">
+            <p className="text-lg text-slate-600 dark:text-gray-300 capitalize mt-1 transition-colors duration-300 hover:text-emerald-600 dark:hover:text-emerald-300">
               {current.description}
             </p>
           </div>
@@ -74,7 +74,7 @@ const WeatherCard = ({ weatherData }) => {
             <img
               src={`http://openweathermap.org/img/wn/${current.icon}@4x.png`}
               alt="Weather icon"
-              className="w-24 h-24"
+              className="w-24 h-24 transition-transform duration-300 hover:scale-110"
             />
           )}
         </div>
@@ -82,17 +82,17 @@ const WeatherCard = ({ weatherData }) => {
       <CardContent className="pt-2">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col items-center space-y-2">
-            <div className="text-6xl font-bold text-slate-800 dark:text-white">
+            <div className="text-6xl font-bold text-slate-800 dark:text-white transition-colors duration-300 hover:text-pink-600 dark:hover:text-pink-300">
               {Math.round(current.temp)}°C
             </div>
-            <div className="text-lg text-slate-600 dark:text-gray-300">
+            <div className="text-lg text-slate-600 dark:text-gray-300 transition-colors duration-300 hover:text-blue-600 dark:hover:text-blue-300">
               Feels like {Math.round(current.feelsLike)}°C
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-2">
-            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-              <Thermometer className="h-5 w-5 text-red-500 dark:text-red-400" />
+            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+              <Thermometer className="h-5 w-5 text-red-500 dark:text-red-400 transition-transform duration-300 hover:scale-125" />
               <div>
                 <p className="text-xs text-slate-600 dark:text-gray-300">
                   Temp
@@ -102,8 +102,8 @@ const WeatherCard = ({ weatherData }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-              <Droplets className="h-5 w-5 text-blue-500 dark:text-blue-400" />
+            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+              <Droplets className="h-5 w-5 text-blue-500 dark:text-blue-400 transition-transform duration-300 hover:scale-125" />
               <div>
                 <p className="text-xs text-slate-600 dark:text-gray-300">
                   Humidity
@@ -113,8 +113,8 @@ const WeatherCard = ({ weatherData }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-              <Wind className="h-5 w-5 text-cyan-500 dark:text-cyan-400" />
+            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+              <Wind className="h-5 w-5 text-cyan-500 dark:text-cyan-400 transition-transform duration-300 hover:scale-125" />
               <div>
                 <p className="text-xs text-slate-600 dark:text-gray-300">
                   Wind
@@ -124,8 +124,8 @@ const WeatherCard = ({ weatherData }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-              <Compass className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />
+            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+              <Compass className="h-5 w-5 text-indigo-500 dark:text-indigo-400 transition-transform duration-300 hover:scale-125" />
               <div>
                 <p className="text-xs text-slate-600 dark:text-gray-300">
                   Direction
@@ -135,8 +135,8 @@ const WeatherCard = ({ weatherData }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-              <Gauge className="h-5 w-5 text-purple-500 dark:text-purple-400" />
+            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+              <Gauge className="h-5 w-5 text-purple-500 dark:text-purple-400 transition-transform duration-300 hover:scale-125" />
               <div>
                 <p className="text-xs text-slate-600 dark:text-gray-300">
                   Pressure
@@ -146,8 +146,8 @@ const WeatherCard = ({ weatherData }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-              <Eye className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />
+            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+              <Eye className="h-5 w-5 text-emerald-500 dark:text-emerald-400 transition-transform duration-300 hover:scale-125" />
               <div>
                 <p className="text-xs text-slate-600 dark:text-gray-300">
                   Visibility
@@ -157,8 +157,8 @@ const WeatherCard = ({ weatherData }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-              <Cloud className="h-5 w-5 text-sky-500 dark:text-sky-400" />
+            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+              <Cloud className="h-5 w-5 text-sky-500 dark:text-sky-400 transition-transform duration-300 hover:scale-125" />
               <div>
                 <p className="text-xs text-slate-600 dark:text-gray-300">
                   Clouds
@@ -168,8 +168,8 @@ const WeatherCard = ({ weatherData }) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-              <Umbrella className="h-5 w-5 text-violet-500 dark:text-violet-400" />
+            <div className="flex items-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+              <Umbrella className="h-5 w-5 text-violet-500 dark:text-violet-400 transition-transform duration-300 hover:scale-125" />
               <div>
                 <p className="text-xs text-slate-600 dark:text-gray-300">
                   Rain (1h)
@@ -183,8 +183,8 @@ const WeatherCard = ({ weatherData }) => {
         </div>
 
         <div className="mt-4 grid grid-cols-2 gap-2">
-          <div className="flex items-center justify-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-            <Sunrise className="h-5 w-5 text-amber-500 dark:text-amber-400" />
+          <div className="flex items-center justify-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+            <Sunrise className="h-5 w-5 text-amber-500 dark:text-amber-400 transition-transform duration-300 hover:scale-125" />
             <div>
               <p className="text-xs text-slate-600 dark:text-gray-300">
                 Sunrise
@@ -194,8 +194,8 @@ const WeatherCard = ({ weatherData }) => {
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600">
-            <Sunset className="h-5 w-5 text-orange-500 dark:text-orange-400" />
+          <div className="flex items-center justify-center space-x-2 p-2 bg-white/50 dark:bg-gray-700/50 rounded-lg border border-slate-200 dark:border-gray-600 transition-all duration-300 hover:scale-105 hover:bg-blue-100/70 dark:hover:bg-blue-900/30 hover:shadow-lg">
+            <Sunset className="h-5 w-5 text-orange-500 dark:text-orange-400 transition-transform duration-300 hover:scale-125" />
             <div>
               <p className="text-xs text-slate-600 dark:text-gray-300">
                 Sunset

@@ -1,9 +1,11 @@
 // src/App.js
 import { useState, useEffect } from "react";
 import { fetchWeatherData } from "./services/weatherApi";
-import { CitySearch } from "./components/CitySearch";
-import { WeatherCard } from "./components/WeatherCard";
-import { ForecastCard } from "./components/ForecastCard";
+import CitySearch from "./components/CitySearch";
+
+import WeatherCard from "./components/WeatherCard";
+import ForecastCard from "./components/ForecastCard";
+
 import ThemeToggle from "./components/ThemeToggle";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -72,14 +74,37 @@ function App() {
     }
   }, []);
 
+  // Function to determine background gradient based on weather
+  const getWeatherBg = () => {
+    const main =
+      weatherData?.current?.weatherMain ||
+      weatherData?.current?.description ||
+      "";
+    if (/clear|sunny/i.test(main)) {
+      return "bg-gradient-to-br from-yellow-100 via-yellow-200 to-orange-200";
+    }
+    if (/rain|drizzle|thunderstorm/i.test(main)) {
+      return "bg-gradient-to-br from-blue-200 via-blue-400 to-gray-400";
+    }
+    if (/cloud/i.test(main)) {
+      return "bg-gradient-to-br from-slate-200 via-gray-300 to-gray-400";
+    }
+    if (/snow/i.test(main)) {
+      return "bg-gradient-to-br from-blue-100 via-white to-blue-200";
+    }
+    return "bg-gradient-to-br from-pink-100 via-sky-100 to-emerald-100";
+  };
+
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gradient-to-br from-sky-100 via-blue-100 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div
+        className={`min-h-screen ${getWeatherBg()} dark:from-gray-900 dark:via-gray-800 dark:to-gray-900`}
+      >
         <div className="container mx-auto px-4 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             {/* Left Side - Fixed */}
             <div className="lg:col-span-1 space-y-4 lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)]">
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-xl p-6 border border-slate-200 dark:border-gray-700">
+              <div className="bg-white/90 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-xl p-6 border border-slate-200 dark:border-gray-700">
                 <div className="flex justify-between items-center mb-4">
                   <h1 className="text-2xl font-bold text-slate-800 dark:text-white">
                     Weather App
@@ -106,14 +131,15 @@ function App() {
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
                 </div>
               ) : (
-                <>
+                <div className="rounded-2xl bg-gradient-to-br from-white via-blue-50 to-emerald-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-2xl p-4 md:p-8">
+                  {/* Show current weather info if available */}
                   {weatherData?.current && (
-                    <WeatherCard weatherData={weatherData.current} />
+                    <WeatherCard weatherData={weatherData} />
                   )}
                   {weatherData?.forecast && (
                     <ForecastCard forecast={weatherData.forecast} />
                   )}
-                </>
+                </div>
               )}
             </div>
           </div>
