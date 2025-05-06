@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useCryptoDetail } from '../hooks/useCryptoData'
 import CryptoDetails from '../components/CryptoDetails'
-import Skeleton  from '../components/ui/skeleton'
+import {Skeleton}  from '../components/ui/skeleton'
 import { ArrowLeft } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 

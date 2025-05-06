@@ -1,8 +1,9 @@
 import { ArrowDown, ArrowUp, Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import  Card  from './ui/card'
-import  Button  from './ui/button'
-import Badge from './ui/badge'
+import  {Card}  from '../components/ui/card'
+import  {Button}  from '../components/ui/button'
+import { Badge } from '../components/ui/badge'; // ✅ Correct for named exports
+
 
 export default function CryptoCard({ crypto }) {
   const navigate = useNavigate()
