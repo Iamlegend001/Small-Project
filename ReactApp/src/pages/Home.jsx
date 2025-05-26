@@ -3,6 +3,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FiMap } from "react-icons/fi";
 import { GoRocket } from "react-icons/go";
 import { Button } from "@/components/ui/button";
+import Scroller1 from "./Scroller/Scroller1";
+import Grid1 from "./Scroller/grid1";
 
 const Home = () => {
   return (
@@ -145,155 +147,45 @@ const Home = () => {
           </Button>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center w-screen bg-white py-20 px-4">
+      <div className="flex flex-col justify-center items-center w-screen bg-white py-20 ">
         <h1 className="text-4xl font-bold text-gray-800 mb-16">
           Discover More
         </h1>
-
-        <div className="Scoller flex flex-row overflow-x-auto gap-12 pb-4 scrollbar-hide">
-          <div
-            name="sexy scroll"
-            className="flex flex-col md:flex-row justify-center items-center max-w-7xl mx-auto gap-12 flex-shrink-0"
-          >
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/images/home/new%20home%20page/my25-bikes-speed-twin-900-stepcarousel-1410x793.png"
-                alt="New Speed Twin 900"
-                className="w-full h-auto object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-
-            {/* Content Section */}
-            <div className="w-full md:w-1/2 p-6 md:p-10">
-              {/* Pagination + Arrows */}
-              <div className="flex justify-between items-center mb-6">
-                <p className="text-gray-500 text-sm tracking-wide">01 / 03</p>
-                <div className="flex gap-4 text-gray-600 text-xl cursor-pointer">
-                  <span className="hover:text-black transition duration-200">
-                    ←
-                  </span>
-                  <span className="hover:text-black transition duration-200">
-                    →
-                  </span>
-                </div>
-              </div>
-
-              {/* Heading */}
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                NEW SPEED TWIN 900
-              </h2>
-
-              {/* Description */}
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
-                Effortlessly stylish and highly customizable, the Speed Twin 900
-                is designed for riders who seek both quality and performance.
-                With its heritage-inspired design combined with modern touches,
-                this motorcycle offers a versatile, thrilling, and accessible
-                riding experience—perfect for those who want style without
-                compromising on comfort and rideability.
-              </p>
-
-              {/* Button */}
-              <button className="px-8 py-3 bg-black text-white text-sm uppercase tracking-wide font-semibold rounded-full hover:bg-white hover:text-black border border-black transition duration-300">
-                Configure Now
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row justify-center items-center max-w-7xl mx-auto gap-12 flex-shrink-0">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/images/home/new%20home%20page/my25-bikes-speed-twin-900-stepcarousel-1410x793.png"
-                alt="New Speed Twin 900"
-                className="w-full h-auto object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-
-            {/* Content Section */}
-            <div className="w-full md:w-1/2 p-6 md:p-10">
-              {/* Pagination + Arrows */}
-              <div className="flex justify-between items-center mb-6">
-                <p className="text-gray-500 text-sm tracking-wide">01 / 03</p>
-                <div className="flex gap-4 text-gray-600 text-xl cursor-pointer">
-                  <span className="hover:text-black transition duration-200">
-                    ←
-                  </span>
-                  <span className="hover:text-black transition duration-200">
-                    →
-                  </span>
-                </div>
-              </div>
-
-              {/* Heading */}
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                NEW SPEED TWIN 900
-              </h2>
-
-              {/* Description */}
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
-                Effortlessly stylish and highly customizable, the Speed Twin 900
-                is designed for riders who seek both quality and performance.
-                With its heritage-inspired design combined with modern touches,
-                this motorcycle offers a versatile, thrilling, and accessible
-                riding experience—perfect for those who want style without
-                compromising on comfort and rideability.
-              </p>
-
-              {/* Button */}
-              <button className="px-8 py-3 bg-black text-white text-sm uppercase tracking-wide font-semibold rounded-full hover:bg-white hover:text-black border border-black transition duration-300">
-                Configure Now
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row justify-center items-center max-w-7xl mx-auto gap-12 flex-shrink-0">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2">
-              <img
-                src="https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/images/home/new%20home%20page/my25-bikes-speed-twin-900-stepcarousel-1410x793.png"
-                alt="New Speed Twin 900"
-                className="w-full h-auto object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-
-            {/* Content Section */}
-            <div className="w-full md:w-1/2 p-6 md:p-10">
-              {/* Pagination + Arrows */}
-              <div className="flex justify-between items-center mb-6">
-                <p className="text-gray-500 text-sm tracking-wide">01 / 03</p>
-                <div className="flex gap-4 text-gray-600 text-xl cursor-pointer">
-                  <span className="hover:text-black transition duration-200">
-                    ←
-                  </span>
-                  <span className="hover:text-black transition duration-200">
-                    →
-                  </span>
-                </div>
-              </div>
-
-              {/* Heading */}
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                NEW SPEED TWIN 900
-              </h2>
-
-              {/* Description */}
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
-                Effortlessly stylish and highly customizable, the Speed Twin 900
-                is designed for riders who seek both quality and performance.
-                With its heritage-inspired design combined with modern touches,
-                this motorcycle offers a versatile, thrilling, and accessible
-                riding experience—perfect for those who want style without
-                compromising on comfort and rideability.
-              </p>
-
-              {/* Button */}
-              <button className="px-8 py-3 bg-black text-white text-sm uppercase tracking-wide font-semibold rounded-full hover:bg-white hover:text-black border border-black transition duration-300">
-                Configure Now
-              </button>
-            </div>
+        <Scroller1 />
+      </div>
+      <div className="flex p-20 bg-gray-50">
+        <div className="flex flex-col items-start justify-center p-10 gap-6 w-1/2">
+          <h1 className="text-4xl font-semibold tracking-wide text-gray-800">
+            TRIUMPH CLOTHING
+          </h1>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Our clothing collection is designed by riders, for riders. You get
+            authentic, individual style - built for the ride... and beyond.
+          </p>
+          <div className="flex gap-4 mt-4">
+            <Button className="px-8 py-6 bg-red-700 text-white text-lg font-medium hover:bg-red-800 transition-colors">
+              Explore
+            </Button>
+            <Button className="px-8 py-6 bg-black text-white text-lg font-medium hover:bg-gray-800 transition-colors">
+              Explore Clothing Shop
+            </Button>
           </div>
         </div>
+        <div className="w-1/2 relative overflow-hidden group">
+          <img
+            src="https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/images/e-com/ss25/dgr%20clothing%20collection%20-%20shop%20home.png"
+            alt="Triumph Clothing Collection"
+            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
       </div>
+      <div>
+        <h1>
+
+        </h1>
+        <Grid1/>
+      </div>
+
     </div>
   );
 };
