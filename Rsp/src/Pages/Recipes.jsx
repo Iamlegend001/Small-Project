@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
-import { recipeContext } from "../Context/RecipeContext";
-import RecipeCard from "../Componets/RecipeCard";
+import React, { useContext } from 'react'
+import { recipeContext } from '../context/RecipeContext'
+import Card from '../Components/Card';
 
 const Recipes = () => {
   const { data } = useContext(recipeContext);
-  const renderrecipes = data.map((recipe) => (
-    <div key={recipe.id}>
-      <RecipeCard recipe={recipe} />
-    </div>
+
+  const renderRecipe = data.map((recipe) => (
+    <Card key={recipe.id} recipe={recipe}/>
   ));
-  return <div>{renderrecipes}</div>;
+
+  return (
+    <div className='flex flex-wrap gap-2'>
+      {renderRecipe}
+    </div>
+  );
 };
 
 export default Recipes;

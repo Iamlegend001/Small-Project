@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from './Componets/Navbar'
 import MainRoutes from './routes/MainRoutes'
+import Navbar from './Components/Navbar'
 
 const App = () => {
   return (
-    <div>
+    <div className='bg-black w-screen h-screen text-white p-10  '>
       <Navbar/>
       <MainRoutes/>
     </div>

@@ -1,131 +1,137 @@
 import { nanoid } from "nanoid";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { recipeContext } from "../Context/RecipeContext";
-import { toast } from "react-toastify";
+import { recipeContext } from "../context/RecipeContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Create = () => {
   const navigate = useNavigate()
-  const { register, handleSubmit, reset } = useForm();
   const { data, setData } = useContext(recipeContext);
-  const Submithandler = (recipe) => {
-    recipe.id = nanoid();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
+  const onSubmit = (recipe) => {
+    recipe.id = nanoid();
     setData([...data, recipe]);
-    toast.success('New Recipe Created')
+    toast.success("New Recipe Created")
     reset();
-    navigate("/racipe")
-    // const formData = new FormData(e.target);
-    // const data2 = {
-    //   name: formData.get("name"),
-    //   category: formData.get("category"),
-    //   instructions: formData.get("instructions"),
-    //   photoUrl: formData.get("photoUrl"),
-    //   description: formData.get("description"),
-    // };
+    navigate("/recipes")
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">
-        Create New Recipe
-      </h2>
-      <form onSubmit={handleSubmit(Submithandler)} className="space-y-6">
+    <div>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="max-w-2xl mx-auto p-6 bg-zinc-900 rounded-xl shadow-md text-white space-y-6"
+      >
+        <h2 className="text-2xl font-semibold text-emerald-400 mb-4">
+          Create a New Recipe
+        </h2>
+
+        {/* Image URL */}
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Recipe Name
-          </label>
           <input
-            {...register("name")}
-            type="text"
-            id="name"
-            name="name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            {...register("image", { required: "Image URL is required" })}
+            type="url"
+            placeholder="Image URL"
+            className="w-full bg-transparent border-b border-zinc-600 p-2 focus:outline-none focus:border-emerald-400"
           />
+          {errors.image && (
+            <small className="text-red-500">{errors.image.message}</small>
+          )}
         </div>
 
+        {/* Title */}
         <div>
-          <label
-            htmlFor="category"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Category
+          <input
+            {...register("title", { required: "Title is required" })}
+            type="text"
+            placeholder="Recipe Title"
+            className="w-full bg-transparent border-b border-zinc-600 p-2 focus:outline-none focus:border-emerald-400"
+          />
+          {errors.title && (
+            <small className="text-red-500">{errors.title.message}</small>
+          )}
+        </div>
+        <div>
+          <input
+            {...register("chef", { required: "Title is required" })}
+            type="text"
+            placeholder="Chef name"
+            className="w-full bg-transparent border-b border-zinc-600 p-2 focus:outline-none focus:border-emerald-400"
+          />
+          {errors.title && (
+            <small className="text-red-500">{errors.title.message}</small>
+          )}
+        </div>
+
+        {/* Description */}
+        <div>
+          <textarea
+            {...register("description", { required: "Description is required" })}
+            placeholder="Write Description here"
+            className="w-full bg-transparent border-b border-zinc-600 p-2 focus:outline-none focus:border-emerald-400"
+          />
+          {errors.description && (
+            <small className="text-red-500">{errors.description.message}</small>
+          )}
+        </div>
+
+        {/* Ingredients */}
+        <div>
+          <textarea
+            {...register("ingredients", { required: "Ingredients are required" })}
+            placeholder="Write ingredients"
+            className="w-full bg-transparent border-b border-zinc-600 p-2 focus:outline-none focus:border-emerald-400"
+          />
+          {errors.ingredients && (
+            <small className="text-red-500">{errors.ingredients.message}</small>
+          )}
+        </div>
+
+        {/* Instruction */}
+        <div>
+          <textarea
+            {...register("instruction", { required: "Instruction is required" })}
+            placeholder="Write instruction"
+            className="w-full bg-transparent border-b border-zinc-600 p-2 focus:outline-none focus:border-emerald-400"
+          />
+          {errors.instruction && (
+            <small className="text-red-500">{errors.instruction.message}</small>
+          )}
+        </div>
+
+        {/* Category Section */}
+        <div>
+          <label className="block mb-1 text-emerald-300 font-medium">
+            Select Category
           </label>
           <select
-            {...register("category")}
-            id="category"
-            name="category"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            {...register("category", { required: "Please select a category" })}
+            className="w-full bg-zinc-800 border border-zinc-600 rounded-lg p-2 focus:outline-none focus:border-emerald-400 text-white"
           >
-            <option value="">Select a category</option>
+            <option value="">-- Choose a Category --</option>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
+            <option value="snack">Snack</option>
             <option value="dessert">Dessert</option>
-            <option value="snacks">Snacks</option>
+            <option value="beverage">Beverage</option>
           </select>
+          {errors.category && (
+            <small className="text-red-500">{errors.category.message}</small>
+          )}
         </div>
 
-        <div>
-          <label
-            htmlFor="description"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Description
-          </label>
-          <textarea
-            {...register("description")}
-            id="description"
-            name="description"
-            rows="3"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="instructions"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Instructions
-          </label>
-          <textarea
-            {...register("instructions")}
-            id="instructions"
-            name="instructions"
-            rows="5"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="photoUrl"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Photo URL
-          </label>
-          <input
-            {...register("photoUrl")}
-            type="url"
-            id="photoUrl"
-            name="photoUrl"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-        </div>
-
+        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200"
+          className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold py-2 rounded-lg transition-colors"
         >
           Create Recipe
         </button>
