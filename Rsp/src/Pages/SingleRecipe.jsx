@@ -161,6 +161,7 @@ const SingleRecipe = () => {
               <option value="snack">Snack</option>
               <option value="dessert">Dessert</option>
               <option value="beverage">Beverage</option>
+              <option value="beverage">Beverage</option>
             </select>
             {errors.category && (
               <p className="text-red-500 mt-1 text-sm">
