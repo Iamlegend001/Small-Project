@@ -100,7 +100,7 @@ const fetchWeatherData = async (city, coords = null) => {
     if (error.response?.status === 404) {
       throw new Error("City not found");
     } else if (error.response?.status === 401) {
-      throw new Error("Invalid API key");
+      throw new Error("Invalid API key and services");
     } else {
       throw error;
     }
